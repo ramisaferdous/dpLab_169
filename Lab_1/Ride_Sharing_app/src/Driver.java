@@ -1,11 +1,8 @@
 
 
-public class Driver {
-    public int id;
-    public String name;
+public class Driver extends User {
+
     public String vehicleType;
-    public Location location;
-    public double rating;
     public String availability;
 
     public PaymentMethod preferredPaymentMethod;
@@ -22,15 +19,12 @@ public class Driver {
     public void acceptRide(Trip trip){
 
     }
-    public void rateRider(Rider rider,double rating){
+    public void rateUser(User user, double rating) {
+        user.rating = (user.rating + rating) / 2.0;
+    }
 
-    }
-    public void updateLocation( Location new_Location){
-        this.location = new_Location;
-    }
     public void startTrip(Trip trip){
         trip.start();
-
     }
 
     public void setAvailable(boolean available) {
@@ -38,6 +32,10 @@ public class Driver {
     }
 
 
+    @Override
+    public void updateLocation(Location new_Location) {
+        this.location = new_Location;
+    }
 }
 
 

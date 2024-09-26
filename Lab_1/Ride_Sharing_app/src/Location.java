@@ -1,10 +1,21 @@
 public class Location {
-    public String name;
-    public double latitude;
-    public double longitude;
-    public Location(String name, double latitude, double longitude) {
-        this.name = name;
-        this.latitude = latitude;
-        this.longitude = longitude;
+    private String locationName;
+    public Location(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+
+    @Override
+    public String toString() {
+        return locationName;
     }
 }

@@ -1,4 +1,3 @@
-import javax.xml.stream.Location;
 
 public class Trip {
     public int id;
@@ -10,12 +9,28 @@ public class Trip {
     public double distance;
     public Driver driver;
     public Rider rider;
-    public Trip(Rider rider,Location pickupLocation,Location dropOffLocation,RideType rideType){
+    public Trip(Rider rider,Driver driver,RideType rideType){
         this.rider=rider;
-        this.pickupLocation=pickupLocation;
-        this.dropOffLocation=dropOffLocation;
+        this.driver=driver;
         this.rideType=rideType;
         this.status="pending";
+    }
+
+
+
+
+    public Location getPickupLocation() {
+        return pickupLocation;
+    }
+    public void setPickupLocation(Location pickupLocation) {
+        this.pickupLocation = pickupLocation;
+    }
+
+    public Location getDropOffLocation() {
+        return dropOffLocation;
+    }
+    public void setDropOffLocation(Location dropOffLocation) {
+        this.dropOffLocation = dropOffLocation;
     }
 
     public double calculateFare() {
@@ -30,9 +45,12 @@ public class Trip {
 
 
     }
+    public void startTrip() {
+        this.status = "Trip started.";
+    }
     public double getFare() {
         return fare;
-    }
+    }//it should depend on ride type,pickup,drop off
     public void start(){
         this.status = "Trip started.";
     }
@@ -40,4 +58,6 @@ public class Trip {
         this.status="completed";
 
     }
+
+
 }

@@ -1,6 +1,5 @@
-import javax.xml.stream.Location;
 
-public class Rider {
+public class Rider extends User{
     public int id;
     public String name;
     public Location location;
@@ -17,11 +16,19 @@ public class Rider {
     public void requestRide(Location Location_pickup,Location Location_dropoff,RideType rideType){
 
     }
-    public void rateDriver(Driver driver, double rating) {
 
-    }
     public void makePayment(Trip trip) {
         PaymentService paymentService =new PaymentService();
         paymentService.processTripPayment(trip,preferredPaymentMethod);
+    }
+
+    @Override
+    public void updateLocation(Location new_Location) {
+        this.location = new_Location;
+    }
+
+    @Override
+    public void rateUser(User user, double rating) {
+        user.rating = (user.rating + rating) / 2.0;
     }
 }
