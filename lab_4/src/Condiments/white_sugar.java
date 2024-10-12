@@ -1,20 +1,21 @@
 package Condiments;
 
-import Beverage.Beverage;
+public class white_sugar implements Icondiment {
+    private Icondiment _icondiment;
 
-public class white_sugar extends Icondiment {
-    public white_sugar(Beverage decoratedBeverage) {
-        super(decoratedBeverage);
+
+    public white_sugar(Icondiment icondiment) {
+
+        _icondiment=icondiment;
     }
-
 
     @Override
     public String getDescription() {
-        return decoratedBeverage.getDescription() + ",Condiments.white_sugar";
+        return "with white sugar " + (_icondiment != null ? _icondiment.getDescription() : "") + ".";
     }
 
     @Override
     public double cost() {
-        return decoratedBeverage.cost() + 1.5;
+        return 1.5 + (_icondiment != null ? _icondiment.cost() : 0);
     }
 }

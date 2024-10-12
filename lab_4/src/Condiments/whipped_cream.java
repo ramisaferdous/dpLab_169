@@ -1,20 +1,21 @@
 package Condiments;
 
-import Beverage.Beverage;
+public class whipped_cream implements Icondiment {
+    private Icondiment _icondiment;
 
-public class whipped_cream extends Icondiment {
-    public whipped_cream(Beverage decoratedBeverage) {
-        super(decoratedBeverage);
+
+    public whipped_cream(Icondiment icondiment) {
+
+        _icondiment=icondiment;
     }
-
 
     @Override
     public String getDescription() {
-        return decoratedBeverage.getDescription() + ",Condiments.whipped_cream";
+        return "with Whipped Cream " + (_icondiment != null ? _icondiment.getDescription() : "") + ".";
     }
 
     @Override
     public double cost() {
-        return decoratedBeverage.cost() + 2;
+        return 2 + (_icondiment != null ? _icondiment.cost() : 0);
     }
 }
