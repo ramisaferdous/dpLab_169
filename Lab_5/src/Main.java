@@ -1,18 +1,16 @@
+import BundlePackage.BirthdayBundle;
 import BundlePackage.BundleProduct;
-import BundlePackage.GeneralBundle;
 import BundlePackage.HolidayBundle;
-import SimpleProducts.Phone;
+import SimpleProducts.Laptop;
 
 public class Main {
     public static void main(String[] args) {
           BundleProduct holidaybundle =new HolidayBundle("Holiday basket");
-
-        BundleProduct specialbundle = new GeneralBundle("Special Offer Bundle");
-                specialbundle.addProduct(holidaybundle);
-                specialbundle.addProduct(new Phone("Headphones", "Noise-cancelling headphones", 200));
+          holidaybundle.addProduct( new Laptop(null,null,190));
+          holidaybundle.addProduct(new BirthdayBundle(null));
 
 
-                specialbundle.displayDetails();
-               System.out.println("Total price:"+ specialbundle.get_price());
+               holidaybundle.displayDetails();
+               System.out.println("Total price:"+ holidaybundle.get_price());
     }
 }

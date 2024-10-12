@@ -14,9 +14,9 @@ public  abstract class BundleProduct implements IProduct {
 
 
 
-    public BundleProduct addProduct(IProduct product) {
+    public void addProduct(IProduct product) {
         products.add(product);
-        return this;
+
     }
     @Override
     public double get_price() {
